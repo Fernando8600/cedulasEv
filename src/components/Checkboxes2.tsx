@@ -4,6 +4,7 @@ interface CheckboxesProps {
     id: string;
     options: string[];
     onChange: (id: string, value: string) => void;
+
 }
 
 const Checkboxes: React.FC<CheckboxesProps> = ({ id, options, onChange }) => {
