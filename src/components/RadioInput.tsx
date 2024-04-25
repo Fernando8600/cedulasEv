@@ -17,8 +17,8 @@ function RadioInput({ options, onChange, value }: RadioInputProps) {
     return (
         <div className="space-x-4">
             {
-                options.map((option) => (
-                    <label>
+                options.map((option, index) => (
+                    <label key={index}>
                         <input className="mr-2" onChange={(e) => onChange(e.target.value)} checked={value === option.value} value={option.value} type="radio" />
                         {option.text}
                     </label>
