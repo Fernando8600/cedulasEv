@@ -13,13 +13,13 @@ interface RadioInputOption {
 }
 
 
-function RadioInput({ options, onChange, value }: RadioInputProps) {
+function RadioInputDisabled({ options, onChange, value }: RadioInputProps) {
     return (
         <div className="space-x-4">
             {
                 options.map((option, index) => (
                     <label key={index}>
-                        <input className="mr-2 mt-2 mb-5" onChange={(e) => onChange(e.target.value)} checked={value === option.value} value={option.value} type="radio" />
+                        <input className="mr-2 mt-2 mb-5 pointer-events-none bg-gray-100" onChange={(e) => onChange(e.target.value)} checked={value === option.value} value={option.value} type="radio" />
                         {option.text}
                     </label>
                 ))
@@ -29,4 +29,4 @@ function RadioInput({ options, onChange, value }: RadioInputProps) {
 
     );
 }
-export default RadioInput;
+export default RadioInputDisabled;
