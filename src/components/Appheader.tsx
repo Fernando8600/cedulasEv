@@ -4,7 +4,7 @@ import { FiMenu, FiMoon, FiSun, FiX } from 'react-icons/fi';
 import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '../images/Logo.png';
-import Encuesta from '@/pages/Encuesta';
+import Analisis from '@/pages/Analisis';
 const AppHeader = () => {
     const [showMenu, setShowMenu] = useState(false);
     const [showModal, setShowModal] = useState(false);
@@ -77,18 +77,18 @@ const AppHeader = () => {
                 }
             >
                 <Link
+                    href="/Analisis"
+                    className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark"
+                    aria-label="Analisis"
+                >
+                    Analisis
+                </Link>
+                <Link
                     href="/"
                     className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
                     aria-label="Evaluaciones"
                 >
                     Evaluaciones
-                </Link>
-                <Link
-                    href="/Encuesta"
-                    className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark"
-                    aria-label="Encuesta"
-                >
-                    Encuesta
                 </Link>
             </div>
 
@@ -102,11 +102,11 @@ const AppHeader = () => {
                     Evaluaciones
                 </Link>
                 <Link
-                    href="/Encuesta"
+                    href="/Analisis"
                     className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark"
-                    aria-label="Encuesta"
+                    aria-label="Analisis"
                 >
-                    Encuesta
+                    Analisis
                 </Link>
 
             </div>

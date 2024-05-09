@@ -263,7 +263,12 @@ function Encuesta() {
                   <br />
                 </>
               )}
-
+              {pregunta.tipo === 'exp1d' && respuestas['expediente_01'] == 0 && (
+                <RadioInput options={[{ text: 'Si', value: '1' }, { text: 'No', value: '0' }]} onChange={(value) => handleInputChange(pregunta.id, parseInt(value))} value={respuestas[pregunta.id]?.toString() ?? ''}></RadioInput>
+              )}
+              {pregunta.tipo === 'exp1h' && respuestas['expediente_01'] == 1 && (
+                <RadioInput options={[{ text: 'Si', value: '1' }, { text: 'No', value: '0' }]} onChange={(value) => handleInputChange(pregunta.id, parseInt(value))} value={respuestas[pregunta.id]?.toString() ?? ''}></RadioInput>
+              )}
             </div>
           ))}
           <div className='flex mt-5'>
