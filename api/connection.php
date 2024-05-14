@@ -7,7 +7,7 @@ function createConnection()
     $servername = "localhost";
     $username = "root";
     $password = "ferserv860";
-    $dbname = "cedula_evaluacion";
+    $dbname = "cedula_evaluaciones";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);

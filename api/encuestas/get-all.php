@@ -4,7 +4,7 @@ include_once "../connection.php";
 
 
 $conn = createConnection();
-$sql = "Select * from encuesta_prueba;";
+$sql = "Select * from formulario_cedulas_02;";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // Fetch all rows from the result set as an associative array

@@ -11,6 +11,7 @@ export interface Pregunta {
   id: string;
   texto: string;
   tipo: string; // Ejemplo: "texto", "checkbox", etc.
+  ponderacion: number;
 }
 interface Jurisdiccion {
   id: number;
@@ -27,7 +28,7 @@ interface CentroSalud {
   municipio_id: number;
 }
 
-interface Respuestas {
+export interface Respuestas {
   [key: string]: string | number | undefined;
 }
 
@@ -63,8 +64,12 @@ function Encuesta() {
     localStorage.setItem('answers-encuesta-01', JSON.stringify(newRespuestas));
     console.log('Respuestas state has changed')
   };
-
-
+  const valorTotal = preguntasPorSeccion.reduce((total, seccion) => {
+    return total + seccion.preguntas.reduce((subtotal, pregunta) => subtotal + pregunta.ponderacion, 0);
+  }, 0);
+  const totalPonderacion = () => {
+    console.log(valorTotal)
+  }
   const avanzarPaso = () => {
     setPaso(paso + 1);
   };
@@ -137,6 +142,128 @@ function Encuesta() {
     }
   };
 
+
+
+
+  const handleSubmitAnswers = async (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
+    try {
+      let totalPonderacion = 0; // Variable para almacenar la ponderación total
+
+      // Recorrer las respuestas
+      Object.entries(respuestas).forEach(([preguntaId, respuesta]) => {
+        // Encontrar la pregunta correspondiente
+        const pregunta = preguntasPorSeccion.flatMap(seccion => seccion.preguntas).find(pregunta => pregunta.id === preguntaId);
+
+        // Verificar si la pregunta existe y tiene una respuesta válida
+        if (pregunta && respuesta !== undefined && respuesta !== null) {
+          // Aplicar la ponderación según el tipo de pregunta y el valor de la respuesta
+          switch (pregunta.tipo) {
+            case 'texto ':
+            case 'checkbox': //3 valores
+              totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion / 2);
+              break;
+            case 'checkboxdual':
+              totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
+              break;
+            case 'checkboxquint':
+              totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion / 5);
+              break;
+            case 'checkboxquad':
+              totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion / 4);
+              break;
+            case 'checkboxdualW':
+              totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
+              break;
+            case 'checkboxdualIVU':
+              totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion); // Multiplicar el valor de la respuesta por la ponderación
+              break;
+            case 'opcional':
+              if (respuestas['pregunta_20'] == 1 || respuestas['pregunta_20'] == 2) {
+                totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
+              } else if (respuestas['pregunta_20'] == 0) {
+                totalPonderacion += 0;
+              }
+
+              break;
+            case 'opcional2':
+              if (respuestas['pregunta_118'] == 1) {
+                totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
+              } else if (respuestas['pregunta_118'] == 0)
+                totalPonderacion += (pregunta.ponderacion);
+              break;
+            case 'exp1d': // opcional
+              if (respuestas['expediente_01'] == 1) {
+                totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
+              }
+              break;
+            case 'exp1h':
+              if (respuestas['expediente_01'] == 2) {
+                totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
+              }
+              break;
+            case 'exp2Ir':
+              if (respuestas['expediente_02'] == 1) {
+                totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
+              }
+              break;
+            case 'exp2Iv':
+              if (respuestas['expediente_02'] == 2) {
+                totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
+              }
+              break;
+            case 'exp2IvEsp':// SINTOMAS
+              if (respuestas['expediente_02'] == 2) {
+                if (respuestas['pregunta_122'] == 1) {
+                  totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
+                } else if (respuestas['pregunta_122'] == 0) {
+                  if (parseInt(respuesta.toString()) == 1) {
+                    totalPonderacion += 0;
+                  } else if (parseInt(respuesta.toString()) == 0) {
+                    totalPonderacion += 0.5;
+                  }
+
+                }
+              }
+              break;
+            case 'opcional3':
+              if (respuestas['pregunta_124'] == 1 && respuestas['pregunta_122'] == 1) {
+                totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
+              } else if (respuestas['pregunta_124'] == 0 && respuestas['pregunta_122'] == 1) {
+                totalPonderacion += 0;
+              } else if (respuestas['pregunta_124'] == 1 && respuestas['pregunta_122'] == 0) {
+                totalPonderacion += 0;
+              } else if (respuestas['pregunta_124'] == 0 && respuestas['pregunta_122'] == 0) {
+                totalPonderacion += 1;
+              }
+              break;
+            case 'opcional4':
+              if (respuestas['pregunta_128'] == 1) {
+                totalPonderacion += 1;
+              } else if (respuestas['pregunta_128'] == 0 && respuestas['pregunta_129'] == 0) {
+                totalPonderacion += 1;
+              }
+              break;
+            case 'exp2Ge':
+              if (respuestas['expediente_02'] == 3) {
+                totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
+              }
+              break;
+
+            default:
+              break;
+          }
+        }
+      });
+
+      // console.log('Ponderación total:', totalPonderacion); // Mostrar la ponderación total
+      // // Aquí puedes enviar los datos al servidor
+      // const response = await axios.post('http://localhost:8088/encuestas/store.php', respuestas);
+      // console.log('Response:', response.data);
+    } catch (error) {
+      console.error('Error posting data:', error);
+    }
+  };
 
   useEffect(() => {
     const fetchJurisdicciones = async () => {
@@ -280,7 +407,7 @@ function Encuesta() {
               {/* Pregunta opcional y dependiente */}
 
 
-              {pregunta.tipo === 'opcional' && (respuestas['pregunta_22'] == 1 || respuestas['pregunta_22'] == 2) && (
+              {pregunta.tipo === 'opcional' && (respuestas['pregunta_20'] == 1 || respuestas['pregunta_20'] == 2) && (
                 <>
                   <h3 className='font-semibold'>{pregunta.texto}</h3>
                   <RadioInput options={[{ text: 'Si', value: '1' }, { text: 'No', value: '0' }]} onChange={(value) => handleInputChange(pregunta.id, parseInt(value))} value={respuestas[pregunta.id]?.toString() ?? ''}></RadioInput>
@@ -294,14 +421,24 @@ function Encuesta() {
               )}
               {pregunta.tipo === 'selec2' && (
                 <>
-                  <h3 className='mt-4 font-bold'>{pregunta.texto}</h3>
-                  <RadioInput options={[{ text: 'IRAS', value: '1' }, { text: 'IVU', value: '2' }, { text: 'GEPI', value: '3' }]} onChange={(value) => handleInputChange(pregunta.id, parseInt(value))} value={respuestas[pregunta.id]?.toString() ?? ''}></RadioInput>
+                  <div className='bg-white w-11/12'>
+                    <h3 className='mt-4 font-bold'>{pregunta.texto}</h3>
+                    <RadioInput options={[{ text: 'IRAS', value: '1' }, { text: 'IVU', value: '2' }, { text: 'GEPI', value: '3' }]} onChange={(value) => handleInputChange(pregunta.id, parseInt(value))} value={respuestas[pregunta.id]?.toString() ?? ''}></RadioInput>
+                  </div>
+                </>
+              )}
+              {pregunta.tipo === 'checkboxdualW' && (
+                <>
+                  <div className='bg-white w-11/12'>
+                    <h3 className='font-semibold'>{pregunta.texto}</h3>
+                    <RadioInput options={[{ text: 'Si', value: '1' }, { text: 'No', value: '0' }]} onChange={(value) => handleInputChange(pregunta.id, parseInt(value))} value={respuestas[pregunta.id]?.toString() ?? ''}></RadioInput>
+                  </div>
                 </>
               )}
               {pregunta.tipo === 'selec3' && (
                 <>
                   <h3 className='mt-4 font-bold'>{pregunta.texto}</h3>
-                  <RadioInput options={[{ text: 'Niños sanos', value: '1' }, { text: 'Edad', value: '2' }, { text: 'Embarazo', value: '3' }]} onChange={(value) => handleInputChange(pregunta.id, parseInt(value))} value={respuestas[pregunta.id]?.toString() ?? ''}></RadioInput>
+                  <RadioInput options={[{ text: 'Niños sanos', value: '1' }, { text: 'Embarazo', value: '2' }]} onChange={(value) => handleInputChange(pregunta.id, parseInt(value))} value={respuestas[pregunta.id]?.toString() ?? ''}></RadioInput>
                 </>
               )}
 
@@ -313,8 +450,21 @@ function Encuesta() {
               )}
               {pregunta.tipo === 'checkboxdualIVU' && respuestas['expediente_02'] == 2 && (
                 <>
-                  <h3 className='font-semibold'>{pregunta.texto}</h3>
-                  <RadioInput options={[{ text: 'Sintomas de IVU', value: '1' }, { text: 'Bacteriuria asintomática', value: '0' }]} onChange={(value) => handleInputChange(pregunta.id, parseInt(value))} value={respuestas[pregunta.id]?.toString() ?? ''}></RadioInput>
+                  <div className='bg-white w-11/12'>
+
+                    <h3 className='font-semibold'>{pregunta.texto}</h3>
+                    <RadioInput options={[{ text: 'Sintomas de IVU', value: '1' }, { text: 'Bacteriuria asintomática', value: '0' }]} onChange={(value) => handleInputChange(pregunta.id, parseInt(value))} value={respuestas[pregunta.id]?.toString() ?? ''}></RadioInput>
+                  </div>
+                </>
+              )}
+
+              {pregunta.tipo === 'checkboxdualIVU' && respuestas['expediente_02'] == 2 && (
+                <>
+                  <div className='bg-white w-11/12'>
+
+                    <h3 className='font-semibold'>{pregunta.texto}</h3>
+                    <RadioInput options={[{ text: 'Sintomas de IVU', value: '1' }, { text: 'Bacteriuria asintomática', value: '0' }]} onChange={(value) => handleInputChange(pregunta.id, parseInt(value))} value={respuestas[pregunta.id]?.toString() ?? ''}></RadioInput>
+                  </div>
                 </>
               )}
               {((pregunta.tipo === 'exp2Ir' && respuestas['expediente_02'] == 1) || (pregunta.tipo === 'exp2Iv' && respuestas['expediente_02'] == 2) || (pregunta.tipo === 'exp2Ge' && respuestas['expediente_02'] == 3)) && (
@@ -326,6 +476,39 @@ function Encuesta() {
                   </div>
                 </>
               )}
+              {(pregunta.tipo === 'exp2IvEsp' && respuestas['expediente_02'] == 2) && (
+                <>
+                  <div className='bg-white w-11/12'>
+
+                    <h3 className='font-semibold'>{pregunta.texto}</h3>
+                    <RadioInput options={[{ text: 'Si', value: '1' }, { text: 'No', value: '0' }]} onChange={(value) => handleInputChange(pregunta.id, parseInt(value))} value={respuestas[pregunta.id]?.toString() ?? ''}></RadioInput>
+                  </div>
+                </>
+              )}
+              {pregunta.tipo === 'opcional2' && respuestas['pregunta_118'] == 1 && (
+                <><div className='bg-white w-11/12'>
+                  <h3 className='font-semibold'>{pregunta.texto}</h3>
+                  <RadioInput options={[{ text: 'Si', value: '1' }, { text: 'No', value: '0' }]} onChange={(value) => handleInputChange(pregunta.id, parseInt(value))} value={respuestas[pregunta.id]?.toString() ?? ''}></RadioInput>
+                </div>
+                </>
+              )}
+              {pregunta.tipo === 'opcional3' && respuestas['pregunta_124'] == 1 && (
+                <>
+                  <div className='bg-white w-11/12'>
+                    <h3 className='font-semibold'>{pregunta.texto}</h3>
+                    <RadioInput options={[{ text: 'Si', value: '1' }, { text: 'No', value: '0' }]} onChange={(value) => handleInputChange(pregunta.id, parseInt(value))} value={respuestas[pregunta.id]?.toString() ?? ''}></RadioInput>
+                  </div>
+                </>
+              )}
+              {pregunta.tipo === 'opcional4' && respuestas['pregunta_129'] == 1 && (
+                <>
+                  <div className='bg-white w-11/12'>
+                    <h3 className='font-semibold'>{pregunta.texto}</h3>
+                    <RadioInput options={[{ text: 'Si', value: '1' }, { text: 'No', value: '0' }]} onChange={(value) => handleInputChange(pregunta.id, parseInt(value))} value={respuestas[pregunta.id]?.toString() ?? ''}></RadioInput>
+                  </div>
+                </>
+              )}
+
               {pregunta.tipo === 'exp3EdTxt' && respuestas['expediente_03'] == 2 && (
                 <>
                   <h3 className='font-semibold'>{pregunta.texto}</h3>
@@ -337,7 +520,7 @@ function Encuesta() {
                   />
                 </>
               )}
-              {((pregunta.tipo === 'exp3N' && respuestas['expediente_03'] == 1) || (pregunta.tipo === 'exp3Ed' && respuestas['expediente_03'] == 2) || (pregunta.tipo === 'exp3Em' && respuestas['expediente_03'] == 3)) && (
+              {((pregunta.tipo === 'exp3N' && respuestas['expediente_03'] == 1) || (pregunta.tipo === 'exp3Ed' && respuestas['expediente_03'] == 2) || (pregunta.tipo === 'exp3Em' && respuestas['expediente_03'] == 2)) && (
                 <>
                   <h3 className='font-semibold'>{pregunta.texto}</h3>
                   <RadioInput options={[{ text: 'Si', value: '1' }, { text: 'No', value: '0' }]} onChange={(value) => handleInputChange(pregunta.id, parseInt(value))} value={respuestas[pregunta.id]?.toString() ?? ''}></RadioInput>
@@ -376,6 +559,7 @@ function Encuesta() {
               )}
               <button className='ml-4 group relative h-7 w-20 overflow-hidden rounded-2xl bg-blue-600 text-sm font-bold text-white' type='submit' >Enviar</button>
             </form>
+            <button onClick={handleSubmitAnswers} className="ml-4 group relative h-7 w-20 overflow-hidden rounded-2xl bg-gray-900 text-sm font-bold text-white">Total</button>
 
           </div>
 
