@@ -193,7 +193,7 @@ export const preguntasPorSeccion: { titulo: string; preguntas: Pregunta[]; }[] =
             //IRAS
             { id: 'expediente_02', texto: 'Expediente 2', tipo: 'selec2', ponderacion: 0 },
             { id: 'pregunta_118', texto: '¿Se recetó antibiótico?', tipo: 'exp2Ir', ponderacion: 0 },
-            { id: 'pregunta_119', texto: '¿El cuadro clínico justifica la respuesta de la pregunta anteriror?', tipo: 'exp2Ir', ponderacion: 1.5 },
+            { id: 'pregunta_119', texto: '¿El cuadro clínico justifica la respuesta de la pregunta anterior?', tipo: 'exp2Ir', ponderacion: 1.5 },
             { id: 'pregunta_120', texto: 'El antibiótico seleccionado fue adecuado para el padecimiento', tipo: 'opcional2', ponderacion: 1 },
             { id: 'pregunta_121', texto: 'De acuerdo al manejo seleccionado ¿el esquema y posología es el adecuado?', tipo: 'exp2Ir', ponderacion: 1 },
             //IVU

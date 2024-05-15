@@ -145,125 +145,125 @@ function Encuesta() {
 
 
 
-  const handleSubmitAnswers = async (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
-    try {
-      let totalPonderacion = 0; // Variable para almacenar la ponderación total
+  // const handleSubmitAnswers = async (e: { preventDefault: () => void; }) => {
+  //   e.preventDefault();
+  //   try {
+  //     let totalPonderacion = 0; // Variable para almacenar la ponderación total
 
-      // Recorrer las respuestas
-      Object.entries(respuestas).forEach(([preguntaId, respuesta]) => {
-        // Encontrar la pregunta correspondiente
-        const pregunta = preguntasPorSeccion.flatMap(seccion => seccion.preguntas).find(pregunta => pregunta.id === preguntaId);
+  //     // Recorrer las respuestas
+  //     Object.entries(respuestas).forEach(([preguntaId, respuesta]) => {
+  //       // Encontrar la pregunta correspondiente
+  //       const pregunta = preguntasPorSeccion.flatMap(seccion => seccion.preguntas).find(pregunta => pregunta.id === preguntaId);
 
-        // Verificar si la pregunta existe y tiene una respuesta válida
-        if (pregunta && respuesta !== undefined && respuesta !== null) {
-          // Aplicar la ponderación según el tipo de pregunta y el valor de la respuesta
-          switch (pregunta.tipo) {
-            case 'texto ':
-            case 'checkbox': //3 valores
-              totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion / 2);
-              break;
-            case 'checkboxdual':
-              totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
-              break;
-            case 'checkboxquint':
-              totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion / 5);
-              break;
-            case 'checkboxquad':
-              totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion / 4);
-              break;
-            case 'checkboxdualW':
-              totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
-              break;
-            case 'checkboxdualIVU':
-              totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion); // Multiplicar el valor de la respuesta por la ponderación
-              break;
-            case 'opcional':
-              if (respuestas['pregunta_20'] == 1 || respuestas['pregunta_20'] == 2) {
-                totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
-              } else if (respuestas['pregunta_20'] == 0) {
-                totalPonderacion += 0;
-              }
+  //       // Verificar si la pregunta existe y tiene una respuesta válida
+  //       if (pregunta && respuesta !== undefined && respuesta !== null) {
+  //         // Aplicar la ponderación según el tipo de pregunta y el valor de la respuesta
+  //         switch (pregunta.tipo) {
+  //           case 'texto ':
+  //           case 'checkbox': //3 valores
+  //             totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion / 2);
+  //             break;
+  //           case 'checkboxdual':
+  //             totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
+  //             break;
+  //           case 'checkboxquint':
+  //             totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion / 5);
+  //             break;
+  //           case 'checkboxquad':
+  //             totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion / 4);
+  //             break;
+  //           case 'checkboxdualW':
+  //             totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
+  //             break;
+  //           case 'checkboxdualIVU':
+  //             totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion); // Multiplicar el valor de la respuesta por la ponderación
+  //             break;
+  //           case 'opcional':
+  //             if (respuestas['pregunta_20'] == 1 || respuestas['pregunta_20'] == 2) {
+  //               totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
+  //             } else if (respuestas['pregunta_20'] == 0) {
+  //               totalPonderacion += 0;
+  //             }
 
-              break;
-            case 'opcional2':
-              if (respuestas['pregunta_118'] == 1) {
-                totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
-              } else if (respuestas['pregunta_118'] == 0)
-                totalPonderacion += (pregunta.ponderacion);
-              break;
-            case 'exp1d': // opcional
-              if (respuestas['expediente_01'] == 1) {
-                totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
-              }
-              break;
-            case 'exp1h':
-              if (respuestas['expediente_01'] == 2) {
-                totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
-              }
-              break;
-            case 'exp2Ir':
-              if (respuestas['expediente_02'] == 1) {
-                totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
-              }
-              break;
-            case 'exp2Iv':
-              if (respuestas['expediente_02'] == 2) {
-                totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
-              }
-              break;
-            case 'exp2IvEsp':// SINTOMAS
-              if (respuestas['expediente_02'] == 2) {
-                if (respuestas['pregunta_122'] == 1) {
-                  totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
-                } else if (respuestas['pregunta_122'] == 0) {
-                  if (parseInt(respuesta.toString()) == 1) {
-                    totalPonderacion += 0;
-                  } else if (parseInt(respuesta.toString()) == 0) {
-                    totalPonderacion += 0.5;
-                  }
+  //             break;
+  //           case 'opcional2':
+  //             if (respuestas['pregunta_118'] == 1) {
+  //               totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
+  //             } else if (respuestas['pregunta_118'] == 0)
+  //               totalPonderacion += (pregunta.ponderacion);
+  //             break;
+  //           case 'exp1d': // opcional
+  //             if (respuestas['expediente_01'] == 1) {
+  //               totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
+  //             }
+  //             break;
+  //           case 'exp1h':
+  //             if (respuestas['expediente_01'] == 2) {
+  //               totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
+  //             }
+  //             break;
+  //           case 'exp2Ir':
+  //             if (respuestas['expediente_02'] == 1) {
+  //               totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
+  //             }
+  //             break;
+  //           case 'exp2Iv':
+  //             if (respuestas['expediente_02'] == 2) {
+  //               totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
+  //             }
+  //             break;
+  //           case 'exp2IvEsp':// SINTOMAS
+  //             if (respuestas['expediente_02'] == 2) {
+  //               if (respuestas['pregunta_122'] == 1) {
+  //                 totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
+  //               } else if (respuestas['pregunta_122'] == 0) {
+  //                 if (parseInt(respuesta.toString()) == 1) {
+  //                   totalPonderacion += 0;
+  //                 } else if (parseInt(respuesta.toString()) == 0) {
+  //                   totalPonderacion += 0.5;
+  //                 }
 
-                }
-              }
-              break;
-            case 'opcional3':
-              if (respuestas['pregunta_124'] == 1 && respuestas['pregunta_122'] == 1) {
-                totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
-              } else if (respuestas['pregunta_124'] == 0 && respuestas['pregunta_122'] == 1) {
-                totalPonderacion += 0;
-              } else if (respuestas['pregunta_124'] == 1 && respuestas['pregunta_122'] == 0) {
-                totalPonderacion += 0;
-              } else if (respuestas['pregunta_124'] == 0 && respuestas['pregunta_122'] == 0) {
-                totalPonderacion += 1;
-              }
-              break;
-            case 'opcional4':
-              if (respuestas['pregunta_128'] == 1) {
-                totalPonderacion += 1;
-              } else if (respuestas['pregunta_128'] == 0 && respuestas['pregunta_129'] == 0) {
-                totalPonderacion += 1;
-              }
-              break;
-            case 'exp2Ge':
-              if (respuestas['expediente_02'] == 3) {
-                totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
-              }
-              break;
+  //               }
+  //             }
+  //             break;
+  //           case 'opcional3':
+  //             if (respuestas['pregunta_124'] == 1 && respuestas['pregunta_122'] == 1) {
+  //               totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
+  //             } else if (respuestas['pregunta_124'] == 0 && respuestas['pregunta_122'] == 1) {
+  //               totalPonderacion += 0;
+  //             } else if (respuestas['pregunta_124'] == 1 && respuestas['pregunta_122'] == 0) {
+  //               totalPonderacion += 0;
+  //             } else if (respuestas['pregunta_124'] == 0 && respuestas['pregunta_122'] == 0) {
+  //               totalPonderacion += 1;
+  //             }
+  //             break;
+  //           case 'opcional4':
+  //             if (respuestas['pregunta_128'] == 1) {
+  //               totalPonderacion += 1;
+  //             } else if (respuestas['pregunta_128'] == 0 && respuestas['pregunta_129'] == 0) {
+  //               totalPonderacion += 1;
+  //             }
+  //             break;
+  //           case 'exp2Ge':
+  //             if (respuestas['expediente_02'] == 3) {
+  //               totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
+  //             }
+  //             break;
 
-            default:
-              break;
-          }
-        }
-      });
+  //           default:
+  //             break;
+  //         }
+  //       }
+  //     });
 
-      // console.log('Ponderación total:', totalPonderacion); // Mostrar la ponderación total
-      // // Aquí puedes enviar los datos al servidor
-      // const response = await axios.post('http://localhost:8088/encuestas/store.php', respuestas);
-      // console.log('Response:', response.data);
-    } catch (error) {
-      console.error('Error posting data:', error);
-    }
-  };
+  //     // console.log('Ponderación total:', totalPonderacion); // Mostrar la ponderación total
+  //     // // Aquí puedes enviar los datos al servidor
+  //     // const response = await axios.post('http://localhost:8088/encuestas/store.php', respuestas);
+  //     // console.log('Response:', response.data);
+  //   } catch (error) {
+  //     console.error('Error posting data:', error);
+  //   }
+  // };
 
   useEffect(() => {
     const fetchJurisdicciones = async () => {
@@ -395,13 +395,13 @@ function Encuesta() {
               {pregunta.tipo === 'checkboxquint' && (
                 <>
                   <h3 className='font-semibold'>{pregunta.texto}</h3>
-                  <RadioInput options={[{ text: 'Perfecto', value: '5' }, { text: 'Bueno', value: '4' }, { text: 'Medio', value: '2' }, { text: 'Bajo', value: '1' }, { text: 'Malo', value: '0' }]} onChange={(value) => handleInputChange(pregunta.id, parseInt(value))} value={respuestas[pregunta.id]?.toString() ?? ''}></RadioInput>
+                  <RadioInput options={[{ text: 'Perfecto', value: '4' }, { text: 'Bueno', value: '3' }, { text: 'Medio', value: '2' }, { text: 'Bajo', value: '1' }, { text: 'Malo', value: '0' }]} onChange={(value) => handleInputChange(pregunta.id, parseInt(value))} value={respuestas[pregunta.id]?.toString() ?? ''}></RadioInput>
                 </>
               )}
               {pregunta.tipo === 'checkboxquad' && (
                 <>
                   <h3 className='font-semibold'>{pregunta.texto}</h3>
-                  <RadioInput options={[{ text: 'Todas', value: '4' }, { text: 'La Mayoría', value: '2' }, { text: 'Pocas', value: '1' }, { text: 'Ninguna', value: '0' }]} onChange={(value) => handleInputChange(pregunta.id, parseInt(value))} value={respuestas[pregunta.id]?.toString() ?? ''}></RadioInput>
+                  <RadioInput options={[{ text: 'Todas', value: '3' }, { text: 'La Mayoría', value: '2' }, { text: 'Pocas', value: '1' }, { text: 'Ninguna', value: '0' }]} onChange={(value) => handleInputChange(pregunta.id, parseInt(value))} value={respuestas[pregunta.id]?.toString() ?? ''}></RadioInput>
                 </>
               )}
               {/* Pregunta opcional y dependiente */}
@@ -559,7 +559,7 @@ function Encuesta() {
               )}
               <button className='ml-4 group relative h-7 w-20 overflow-hidden rounded-2xl bg-blue-600 text-sm font-bold text-white' type='submit' >Enviar</button>
             </form>
-            <button onClick={handleSubmitAnswers} className="ml-4 group relative h-7 w-20 overflow-hidden rounded-2xl bg-gray-900 text-sm font-bold text-white">Total</button>
+            <button className="ml-4 group relative h-7 w-20 overflow-hidden rounded-2xl bg-gray-900 text-sm font-bold text-white">Total</button>
 
           </div>
 
