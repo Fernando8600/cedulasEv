@@ -39,7 +39,6 @@ const handleSubmit = async (e: { preventDefault: () => void; }) => {
                         } else if (respuestas['pregunta_20'] == 0) {
                             totalPonderacion += 0;
                         }
-
                         break;
                     case 'opcional2':
                         if (respuestas['pregunta_118'] == 1) {
@@ -101,6 +100,21 @@ const handleSubmit = async (e: { preventDefault: () => void; }) => {
                         break;
                     case 'exp2Ge':
                         if (respuestas['expediente_02'] == 3) {
+                            totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
+                        }
+                        break;
+                    case 'exp3N':
+                        if (respuestas['expediente_03'] == 1) {
+                            totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
+                        }
+                        break;
+                    case 'exp3Em':
+                        if (respuestas['expediente_03'] == 1) {
+                            totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
+                        }
+                        break;
+                    case 'exp3EmEsp':
+                        if (respuestas['expediente_03'] == 1) {
                             totalPonderacion += parseInt(respuesta.toString()) * (pregunta.ponderacion);
                         }
                         break;

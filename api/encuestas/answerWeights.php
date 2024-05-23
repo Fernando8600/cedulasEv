@@ -3,6 +3,7 @@ function getAnswerValue($column_name, $value, $answers)
 {
     switch ($column_name) {
         case "pregunta_01":
+        case "pregunta_04":
         case "pregunta_42":
         case "pregunta_44":
         case "pregunta_57":
@@ -12,17 +13,17 @@ function getAnswerValue($column_name, $value, $answers)
         case "pregunta_91":
             return $value * 0.25;
         case "pregunta_02":
-            if ($value > 80) {
+            if ($value >= 80) {
                 $value = 100;
             }
             return $value / 100;
         case "pregunta_03":
-            if ($value > 80) {
+            if ($value >= 80) {
                 $value = 100;
             }
             $value = $value / 100;
             return $value * 3;
-        case "pregunta_04":
+
         case "pregunta_06":
         case "pregunta_07":
         case "pregunta_10":
@@ -36,21 +37,19 @@ function getAnswerValue($column_name, $value, $answers)
         case "pregunta_56":
         case "pregunta_94":
         case "pregunta_95":
-        case "pregunta_123":
-        case "pregunta_124":
-        case "pregunta_127":
             return $value * 0.5;
-        case "pregunta_05":
-            if ($value <= 12) {
 
-                $value = $value / 12;
+        case "pregunta_05":
+            if ($value >= 12) {
+                $value = 12;
             }
+            $value = $value / 12;
             return $value * 3;
         case "pregunta_08":
-            if ($value >= 3) {
-                $value = 3;
+            if ($value >= 25) {
+                $value = 25;
             }
-            $value = $value / 3;
+            $value = $value / 25;
             return $value;
         case "pregunta_09":
         case "pregunta_13":
@@ -66,10 +65,6 @@ function getAnswerValue($column_name, $value, $answers)
         case "pregunta_87":
         case "pregunta_89":
         case "pregunta_115":
-        case "pregunta_120":
-        case "pregunta_121":
-        case "pregunta_125":
-        case "pregunta_126":
         case "pregunta_133":
         case "pregunta_144":
             return $value;
@@ -99,6 +94,7 @@ function getAnswerValue($column_name, $value, $answers)
         case "pregunta_90":
         case "pregunta_99":
         case "pregunta_117":
+        case "pregunta_135":
         case "pregunta_146":
             return $value * 0.2;
         case "pregunta_21":
@@ -115,6 +111,7 @@ function getAnswerValue($column_name, $value, $answers)
         case "pregunta_100":
         case "pregunta_101":
         case "pregunta_116":
+        case "pregunta_134":
         case "pregunta_145":
             return $value * 0.3;
         case "pregunta_27":
@@ -158,27 +155,202 @@ function getAnswerValue($column_name, $value, $answers)
                 return $value / 2.5;
             }
         case "pregunta_88":
-        case "pregunta_112":
-        case "pregunta_114":
-        case "pregunta_119":
+        case "pregunta_141":
             return $value * 1.5;
         case "pregunta_102":
             return $value / 4;
         case "pregunta_104":
-            return ($value / $answers["pregunta_103"]) * 4.5; //4.5
+            if ($answers["pregunta_103"] != 0) {
+                return ($value / $answers["pregunta_103"]) * 4.5; //4.5
+            } else {
+                return 0;
+            }
         case "pregunta_106":
-            return ($value / $answers["pregunta_105"]) * 2.5; //4.5
+            if ($answers["pregunta_105"] != 0) {
+                return ($value / $answers["pregunta_105"]) * 2.5;
+            } else {
+                return 0;
+            }
         case "pregunta_108":
-            return ($value / $answers["pregunta_107"]) * 4.5; //4.5
-        case "pregunta_110":
-            return ($value / $answers["pregunta_109"]) * 2.5; //4.5        
-        case "pregunta_111":
-        case "pregunta_113":
-            return $value * 2;
+            if ($answers["pregunta_107"] != 0) {
+                return ($value / $answers["pregunta_107"]) * 4.5;
+            } else {
+                return 0;
+            }
 
+        case "pregunta_110":
+            if ($answers["pregunta_109"] != 0) {
+                return ($value / $answers["pregunta_109"]) * 2.5;
+            } else {
+                return 0;
+            }
+
+        case "pregunta_114":
+            if ($answers["expediente_01"] == 2) {
+                return $value * 1.5;
+            } else {
+                return 0;
+            }
+        case "pregunta_112":
+            if ($answers["expediente_01"] == 1) {
+                return $value * 1.5;
+            } else {
+                return 0;
+            }
+        case "pregunta_111":
+            if ($answers["expediente_01"] == 1) {
+                return $value * .2;
+            } else {
+                return 0;
+            }
+        case "pregunta_113":
+            if ($answers["expediente_01"] == 2) {
+                return $value * .2;
+            } else {
+                return 0;
+            }
+
+        case "pregunta_119":
+            if ($answers["expediente_02"] == 1) {
+                return $value * 1.5;
+            } else {
+                return 0;
+            }
+
+        case "pregunta_120":
+            if ($answers["expediente_02"] == 1) {
+                return $value;
+            } else {
+                return 0;
+            }
+
+        case "pregunta_121":
+            if ($answers["expediente_02"] == 1) {
+                return $value * 0.5;
+            } else {
+                return 0;
+            }
+
+        case "pregunta_123":
+            if ($answers["expediente_02"] == 2) {
+                return $value * 0.5;
+            } else {
+                return 0;
+            }
+
+        case "pregunta_125":
+            if ($answers["expediente_02"] == 2) {
+                return $value;
+            } else {
+                return 0;
+            }
+
+        case "pregunta_127":
+            if ($answers["expediente_02"] == 2) {
+                return $value * 0.25;
+            } else {
+                return 0;
+            }
         case "pregunta_124":
-            if (($answers["pregunta_122"] == 1 && $value == 1) || ($answers["pregunta_122"] == 0 && $value == 0)) {
-                return 0.5;
+            if ($answers["expediente_02"] == 2) {
+                if (($answers["pregunta_122"] == 1 && $value == 1) || ($answers["pregunta_122"] == 0 && $value == 0)) {
+                    return 0.5;
+                } else {
+                    return 0;
+                }
+            }
+
+
+        case "pregunta_126":
+            if ($answers["expediente_02"] == 2) {
+                if ($answers["pregunta_124"] == 1) {
+                    return $value;
+                } else if ($answers["pregunta_124"] == 0) {
+                    return 1;
+                }
+            }
+        case "pregunta_129": //antibioticos
+            if ($answers["expediente_02"] == 3) {
+                if (($answers["pregunta_128"] == 1) || (($answers["pregunta_128"] == 0) && ($value == 0))) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        case "pregunta_130": //cifro
+            if ($answers["expediente_02"] == 3) {
+                if (($answers["pregunta_129"] == 0)) {
+
+                    return 1.5;
+                } else if (($answers["pregunta_129"] == 1) && ($answers["pregunta_128"] == 1)) {
+                    return $value * 1.5;
+                } else if (($answers["pregunta_129"] == 1) && $answers["pregunta_128"] == 0) {
+                    return 0;
+                }
+            } else {
+                return 0;
+            }
+        case "pregunta_131":
+            if ($answers["expediente_02"] == 3) {
+                if (($answers["pregunta_129"] == 0)) {
+                    return 0.25;
+                } else if (($answers["pregunta_129"] == 1) && ($answers["pregunta_128"] == 1)) {
+                    return $value * 0.25;
+                } else if (($answers["pregunta_129"] == 1) && $answers["pregunta_128"] == 0) {
+                    return 0;
+                }
+            } else {
+                return 0;
+            }
+
+        case "pregunta_132":
+            if ($answers["expediente_02"] == 3) {
+                return $value * 0.5;
+            } else {
+                return 0;
+            }
+
+        case "pregunta_136":
+            if ($answers["expediente_03"] == 1) {
+                return $value;
+            } else {
+                return 0;
+            }
+        case "pregunta_138":
+            if ($answers["expediente_03"] == 1) {
+                return $value * 0.5;
+            } else {
+                return 0;
+            }
+        case "pregunta_137":
+        case "pregunta_139":
+            if ($answers["expediente_03"] == 1) {
+                return $value;
+            } else {
+                return 0;
+            }
+        case "pregunta_140":
+            if ($answers["expediente_03"] == 2) {
+                return $value;
+            } else {
+                return 0;
+            }
+        case "pregunta_141":
+            if ($answers["expediente_03"] == 2) {
+                return $value * 1.5;
+            } else {
+                return 0;
+            }
+
+        case "pregunta_143":
+            if ($answers["expediente_03"] == 2) {
+                if ($answers["pregunta_142"] == 1) {
+                    return $value;
+                } else {
+                    return 1;
+                }
+            } else {
+                return 0;
             }
     }
     return null;

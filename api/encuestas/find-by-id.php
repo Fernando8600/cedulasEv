@@ -6,7 +6,7 @@ if (isset($_GET['id'])) {
     // Extract id from the URL
     $id = $_GET['id'];
     $conn = createConnection();
-    $sql = "Select * from formulario_cedulas_02 where id = '" . $id . "';";
+    $sql = "Select * from formulario_cedulas_01 where id = '" . $id . "';";
     $result = $conn->query($sql);
     if ($result->num_rows == 1) {
         // Fetch the first row from the result set as an associative array

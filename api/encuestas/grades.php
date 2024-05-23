@@ -16,7 +16,7 @@ function getGradesCedula_02($answers_record)
 }
 
 $conn = createConnection();
-$sql = "Select * from formulario_cedulas_02;";
+$sql = "Select * from formulario_cedulas_03;";
 $result = $conn->query($sql);
 if ($result->num_rows == 0) {
 

@@ -1,0 +1,560 @@
+centro_salud_id:  | 0
+nombre_encuestador:  | 0
+pregunta_01: 0.5 | 0.5
+pregunta_02: 1 | 1.5
+pregunta_03: 3 | 4.5
+pregunta_04: 0.5 | 5
+pregunta_05: 3 | 8
+pregunta_06: 0.5 | 8.5
+pregunta_07: 0.5 | 9
+pregunta_08: 1 | 10
+supervisor_01:  | 10
+pregunta_09: 1 | 11
+pregunta_10: 2 | 13
+pregunta_11: 7 | 20
+pregunta_12: 2 | 22
+supervisor_02:  | 22
+pregunta_13: 1 | 23
+pregunta_14: 1 | 24
+pregunta_15: 1 | 25
+pregunta_16: 1 | 26
+pregunta_17: 0.7 | 26.7
+pregunta_18: 0.5 | 27.2
+pregunta_19: 0.6 | 27.8
+pregunta_20: 0.4 | 28.2
+pregunta_21: 0.8 | 29
+pregunta_22: 1 | 30
+supervisor_03:  | 30
+pregunta_23: 0.5 | 30.5
+pregunta_24: 0.5 | 31
+pregunta_25: 0.2 | 31.2
+pregunta_26: 0.6 | 31.8
+pregunta_27: 0.4 | 32.2
+pregunta_28: 1 | 33.2
+pregunta_29: 0.5 | 33.7
+pregunta_30: 0.4 | 34.1
+pregunta_31: 0.4 | 34.5
+pregunta_32: 1 | 35.5
+pregunta_33: 0.4 | 35.9
+pregunta_35: 0.3 | 36.2
+pregunta_34: 0.3 | 36.5
+pregunta_36: 1 | 37.5
+pregunta_37: 0.2 | 37.7
+pregunta_38: 1 | 38.7
+pregunta_39: 0.4 | 39.1
+pregunta_40: 0.3 | 39.4
+pregunta_41: 0.1 | 39.5
+pregunta_42: 0.5 | 40
+pregunta_43: 0.3 | 40.3
+pregunta_44: 0.5 | 40.8
+pregunta_45: 0.3 | 41.1
+pregunta_46: 0.2 | 41.3
+pregunta_47: 0.2 | 41.5
+pregunta_48: 1 | 42.5
+pregunta_49: 0.4 | 42.9
+pregunta_50: 0.3 | 43.2
+pregunta_51: 0.4 | 43.6
+pregunta_52: 0.4 | 44
+pregunta_53: 0.3 | 44.3
+pregunta_54: 0.2 | 44.5
+pregunta_55: 0.4 | 44.9
+pregunta_56: 0.5 | 45.4
+pregunta_57: 0.5 | 45.9
+pregunta_58: 0.1 | 46
+pregunta_59: 0.5 | 46.5
+pregunta_60: 0.2 | 46.7
+pregunta_61: 0.2 | 46.9
+pregunta_62: 0.1 | 47
+pregunta_63: 0.7 | 47.7
+pregunta_64: 0.1 | 47.8
+pregunta_65: 0.2 | 48
+pregunta_66: 0.7 | 48.7
+pregunta_67: 0.1 | 48.8
+pregunta_68: 1 | 49.8
+pregunta_69: 0.2 | 50
+pregunta_70: 0.2 | 50.2
+pregunta_71: 0.1 | 50.3
+pregunta_72: 0.1 | 50.4
+pregunta_73: 0.1 | 50.5
+pregunta_74: 0.1 | 50.6
+pregunta_75: 0.2 | 50.8
+pregunta_76: 0.7 | 51.5
+pregunta_77: 0.1 | 51.6
+pregunta_78: 0.1 | 51.7
+pregunta_79: 0.3 | 52
+pregunta_80: 0.5 | 52.5
+pregunta_81: 0.5 | 53
+supervisor_04:  | 53
+pregunta_82: 0.1 | 53.1
+pregunta_83: 0.4 | 53.5
+pregunta_84: 2 | 55.5
+pregunta_85: 1 | 56.5
+pregunta_86: 0 | 56.5
+pregunta_87: 1 | 57.5
+pregunta_88: 1.5 | 59
+pregunta_89: 1 | 60
+supervisor_05:  | 60
+pregunta_90: 0.2 | 60.2
+pregunta_91: 0.5 | 60.7
+pregunta_92: 0.6 | 61.3
+pregunta_93: 0.6 | 61.9
+pregunta_94: 0.5 | 62.4
+pregunta_95: 0.5 | 62.9
+pregunta_96: 0.1 | 63
+pregunta_97: 0.1 | 63.1
+pregunta_98: 0.1 | 63.2
+pregunta_99: 0.2 | 63.4
+pregunta_100: 0.3 | 63.7
+pregunta_101: 0.3 | 64
+pregunta_102: 1 | 65
+pregunta_103:  | 65
+pregunta_104: 4.5 | 69.5
+pregunta_105:  | 69.5
+pregunta_106: 2.5 | 72
+pregunta_107:  | 72
+pregunta_108: 4.5 | 76.5
+pregunta_109:  | 76.5
+pregunta_110: 2.5 | 79
+expediente_01:  | 79
+pregunta_113: 2 | 81
+pregunta_114: 1.5 | 82.5
+pregunta_115: 1 | 83.5
+pregunta_116: 0.3 | 83.8
+pregunta_117: 0.2 | 84
+expediente_02:  | 84
+pregunta_128:  | 84
+pregunta_129: 1 | 85
+pregunta_130: 1.5 | 86.5
+pregunta_131: 0.5 | 87
+pregunta_132: 0.5 | 87.5
+pregunta_133: 1 | 88.5
+pregunta_134: 0.3 | 88.8
+pregunta_135: 0.2 | 89
+expediente_03:  | 89
+pregunta_140: 1 | 90
+pregunta_141: 1.5 | 91.5
+pregunta_142:  | 91.5
+pregunta_143: 1 | 92.5
+pregunta_144: 1 | 93.5
+pregunta_145: 0.3 | 93.8
+pregunta_146: 0.2 | 94
+centro_salud_id:  | 0
+nombre_encuestador:  | 0
+pregunta_01: 0.5 | 0.5
+pregunta_02: 1 | 1.5
+pregunta_03: 3 | 4.5
+pregunta_04: 0.5 | 5
+pregunta_05: 3 | 8
+pregunta_06: 0.5 | 8.5
+pregunta_07: 0.5 | 9
+pregunta_08: 1 | 10
+supervisor_01:  | 10
+pregunta_09: 1 | 11
+pregunta_10: 2 | 13
+pregunta_11: 7 | 20
+pregunta_12: 2 | 22
+supervisor_02:  | 22
+pregunta_13: 1 | 23
+pregunta_14: 1 | 24
+pregunta_15: 1 | 25
+pregunta_16: 1 | 26
+pregunta_17: 0.7 | 26.7
+pregunta_18: 0.5 | 27.2
+pregunta_19: 0.6 | 27.8
+pregunta_20: 0.4 | 28.2
+pregunta_21: 0.8 | 29
+pregunta_22: 1 | 30
+supervisor_03:  | 30
+pregunta_23: 0.5 | 30.5
+pregunta_24: 0.5 | 31
+pregunta_25: 0.2 | 31.2
+pregunta_26: 0.6 | 31.8
+pregunta_27: 0.4 | 32.2
+pregunta_28: 1 | 33.2
+pregunta_29: 0.5 | 33.7
+pregunta_30: 0.4 | 34.1
+pregunta_31: 0.4 | 34.5
+pregunta_32: 1 | 35.5
+pregunta_33: 0.4 | 35.9
+pregunta_35: 0.3 | 36.2
+pregunta_34: 0.3 | 36.5
+pregunta_36: 1 | 37.5
+pregunta_37: 0.2 | 37.7
+pregunta_38: 1 | 38.7
+pregunta_39: 0.4 | 39.1
+pregunta_40: 0.3 | 39.4
+pregunta_41: 0.1 | 39.5
+pregunta_42: 0.5 | 40
+pregunta_43: 0.3 | 40.3
+pregunta_44: 0.5 | 40.8
+pregunta_45: 0.3 | 41.1
+pregunta_46: 0.2 | 41.3
+pregunta_47: 0.2 | 41.5
+pregunta_48: 1 | 42.5
+pregunta_49: 0.4 | 42.9
+pregunta_50: 0.3 | 43.2
+pregunta_51: 0.4 | 43.6
+pregunta_52: 0.4 | 44
+pregunta_53: 0.3 | 44.3
+pregunta_54: 0.2 | 44.5
+pregunta_55: 0.4 | 44.9
+pregunta_56: 0.5 | 45.4
+pregunta_57: 0.5 | 45.9
+pregunta_58: 0.1 | 46
+pregunta_59: 0.5 | 46.5
+pregunta_60: 0.2 | 46.7
+pregunta_61: 0.2 | 46.9
+pregunta_62: 0.1 | 47
+pregunta_63: 0.7 | 47.7
+pregunta_64: 0.1 | 47.8
+pregunta_65: 0.2 | 48
+pregunta_66: 0.7 | 48.7
+pregunta_67: 0.1 | 48.8
+pregunta_68: 1 | 49.8
+pregunta_69: 0.2 | 50
+pregunta_70: 0.2 | 50.2
+pregunta_71: 0.1 | 50.3
+pregunta_72: 0.1 | 50.4
+pregunta_73: 0.1 | 50.5
+pregunta_74: 0.1 | 50.6
+pregunta_75: 0.2 | 50.8
+pregunta_76: 0.7 | 51.5
+pregunta_77: 0.1 | 51.6
+pregunta_78: 0.1 | 51.7
+pregunta_79: 0.3 | 52
+pregunta_80: 0.5 | 52.5
+pregunta_81: 0.5 | 53
+supervisor_04:  | 53
+pregunta_82: 0.1 | 53.1
+pregunta_83: 0.4 | 53.5
+pregunta_84: 2 | 55.5
+pregunta_85: 1 | 56.5
+pregunta_86: 6 | 62.5
+pregunta_87: 1 | 63.5
+pregunta_88: 1.5 | 65
+pregunta_89: 1 | 66
+supervisor_05:  | 66
+pregunta_90: 0.2 | 66.2
+pregunta_91: 0.5 | 66.7
+pregunta_92: 0.6 | 67.3
+pregunta_93: 0.6 | 67.9
+pregunta_94: 0.5 | 68.4
+pregunta_95: 0.5 | 68.9
+pregunta_96: 0.1 | 69
+pregunta_97: 0.1 | 69.1
+pregunta_98: 0.1 | 69.2
+pregunta_99: 0.2 | 69.4
+pregunta_100: 0.3 | 69.7
+pregunta_101: 0.3 | 70
+pregunta_102: 1 | 71
+pregunta_103:  | 71
+pregunta_104: 4.5 | 75.5
+pregunta_105:  | 75.5
+pregunta_106: 2.5 | 78
+pregunta_107:  | 78
+pregunta_108: 4.5 | 82.5
+pregunta_109:  | 82.5
+pregunta_110: 2.5 | 85
+expediente_01:  | 85
+pregunta_113: 2 | 87
+pregunta_114: 1.5 | 88.5
+pregunta_115: 1 | 89.5
+pregunta_116: 0.3 | 89.8
+pregunta_117: 0.2 | 90
+expediente_02:  | 90
+pregunta_128:  | 90
+pregunta_129: 1 | 91
+pregunta_130: 1.5 | 92.5
+pregunta_131: 0.5 | 93
+pregunta_132: 0.5 | 93.5
+pregunta_133: 1 | 94.5
+pregunta_134: 0.3 | 94.8
+pregunta_135: 0.2 | 95
+expediente_03:  | 95
+pregunta_140: 1 | 96
+pregunta_141: 1.5 | 97.5
+pregunta_142:  | 97.5
+pregunta_143: 1 | 98.5
+pregunta_144: 1 | 99.5
+pregunta_145: 0.3 | 99.8
+pregunta_146: 0.2 | 100
+centro_salud_id:  | 0
+nombre_encuestador:  | 0
+pregunta_01: 0.5 | 0.5
+pregunta_02: 1 | 1.5
+pregunta_03: 3 | 4.5
+pregunta_04: 0.5 | 5
+pregunta_05: 3 | 8
+pregunta_06: 0.5 | 8.5
+pregunta_07: 0.5 | 9
+pregunta_08: 1 | 10
+supervisor_01:  | 10
+pregunta_09: 1 | 11
+pregunta_10: 2 | 13
+pregunta_11: 7 | 20
+pregunta_12: 2 | 22
+supervisor_02:  | 22
+pregunta_13: 1 | 23
+pregunta_14: 1 | 24
+pregunta_15: 1 | 25
+pregunta_16: 1 | 26
+pregunta_17: 0.7 | 26.7
+pregunta_18: 0.5 | 27.2
+pregunta_19: 0.6 | 27.8
+pregunta_20: 0.4 | 28.2
+pregunta_21: 0.8 | 29
+pregunta_22: 1 | 30
+supervisor_03:  | 30
+pregunta_23: 0.5 | 30.5
+pregunta_24: 0.5 | 31
+pregunta_25: 0.2 | 31.2
+pregunta_26: 0.6 | 31.8
+pregunta_27: 0.4 | 32.2
+pregunta_28: 1 | 33.2
+pregunta_29: 0.5 | 33.7
+pregunta_30: 0.4 | 34.1
+pregunta_31: 0.4 | 34.5
+pregunta_32: 1 | 35.5
+pregunta_33: 0.4 | 35.9
+pregunta_35: 0.3 | 36.2
+pregunta_34: 0.3 | 36.5
+pregunta_36: 1 | 37.5
+pregunta_37: 0.2 | 37.7
+pregunta_38: 1 | 38.7
+pregunta_39: 0.4 | 39.1
+pregunta_40: 0.3 | 39.4
+pregunta_41: 0.1 | 39.5
+pregunta_42: 0.5 | 40
+pregunta_43: 0.3 | 40.3
+pregunta_44: 0.5 | 40.8
+pregunta_45: 0.3 | 41.1
+pregunta_46: 0.2 | 41.3
+pregunta_47: 0.2 | 41.5
+pregunta_48: 1 | 42.5
+pregunta_49: 0.4 | 42.9
+pregunta_50: 0.3 | 43.2
+pregunta_51: 0.4 | 43.6
+pregunta_52: 0.4 | 44
+pregunta_53: 0.3 | 44.3
+pregunta_54: 0.2 | 44.5
+pregunta_55: 0.4 | 44.9
+pregunta_56: 0.5 | 45.4
+pregunta_57: 0.5 | 45.9
+pregunta_58: 0.1 | 46
+pregunta_59: 0.5 | 46.5
+pregunta_60: 0.2 | 46.7
+pregunta_61: 0.2 | 46.9
+pregunta_62: 0.1 | 47
+pregunta_63: 0.7 | 47.7
+pregunta_64: 0.1 | 47.8
+pregunta_65: 0.2 | 48
+pregunta_66: 0.7 | 48.7
+pregunta_67: 0.1 | 48.8
+pregunta_68: 1 | 49.8
+pregunta_69: 0.2 | 50
+pregunta_70: 0.2 | 50.2
+pregunta_71: 0.1 | 50.3
+pregunta_72: 0.1 | 50.4
+pregunta_73: 0.1 | 50.5
+pregunta_74: 0.1 | 50.6
+pregunta_75: 0.2 | 50.8
+pregunta_76: 0.7 | 51.5
+pregunta_77: 0.1 | 51.6
+pregunta_78: 0.1 | 51.7
+pregunta_79: 0.3 | 52
+pregunta_80: 0.5 | 52.5
+pregunta_81: 0.5 | 53
+supervisor_04:  | 53
+pregunta_82: 0.1 | 53.1
+pregunta_83: 0.4 | 53.5
+pregunta_84: 2 | 55.5
+pregunta_85: 1 | 56.5
+pregunta_86: 6 | 62.5
+pregunta_87: 1 | 63.5
+pregunta_88: 1.5 | 65
+pregunta_89: 1 | 66
+supervisor_05:  | 66
+pregunta_90: 0.2 | 66.2
+pregunta_91: 0.5 | 66.7
+pregunta_92: 0.6 | 67.3
+pregunta_93: 0.6 | 67.9
+pregunta_94: 0.5 | 68.4
+pregunta_95: 0.5 | 68.9
+pregunta_96: 0.1 | 69
+pregunta_97: 0.1 | 69.1
+pregunta_98: 0.1 | 69.2
+pregunta_99: 0.2 | 69.4
+pregunta_100: 0.3 | 69.7
+pregunta_101: 0.3 | 70
+pregunta_102: 1 | 71
+pregunta_103:  | 71
+pregunta_104: 4.5 | 75.5
+pregunta_105:  | 75.5
+pregunta_106: 2.5 | 78
+pregunta_107:  | 78
+pregunta_108: 4.5 | 82.5
+pregunta_109:  | 82.5
+pregunta_110: 2.5 | 85
+expediente_01:  | 85
+pregunta_113: 2 | 87
+pregunta_114: 1.5 | 88.5
+pregunta_115: 1 | 89.5
+pregunta_116: 0.3 | 89.8
+pregunta_117: 0.2 | 90
+expediente_02:  | 90
+pregunta_128:  | 90
+pregunta_129: 1 | 91
+pregunta_130: 1.5 | 92.5
+pregunta_131: 0.5 | 93
+pregunta_132: 0.5 | 93.5
+pregunta_133: 1 | 94.5
+pregunta_134: 0.3 | 94.8
+pregunta_135: 0.2 | 95
+expediente_03:  | 95
+pregunta_140: 1 | 96
+pregunta_141: 1.5 | 97.5
+pregunta_142:  | 97.5
+pregunta_143: 1 | 98.5
+pregunta_144: 1 | 99.5
+pregunta_145: 0.3 | 99.8
+pregunta_146: 0.2 | 100
+centro_salud_id:  | 0
+nombre_encuestador:  | 0
+pregunta_01: 0.5 | 0.5
+pregunta_02: 1 | 1.5
+pregunta_03: 3 | 4.5
+pregunta_04: 0.5 | 5
+pregunta_05: 3 | 8
+pregunta_06: 0.5 | 8.5
+pregunta_07: 0.5 | 9
+pregunta_08: 1 | 10
+supervisor_01:  | 10
+pregunta_09: 1 | 11
+pregunta_10: 2 | 13
+pregunta_11: 7 | 20
+pregunta_12: 2 | 22
+supervisor_02:  | 22
+pregunta_13: 1 | 23
+pregunta_14: 1 | 24
+pregunta_15: 1 | 25
+pregunta_16: 1 | 26
+pregunta_17: 0.7 | 26.7
+pregunta_18: 0.5 | 27.2
+pregunta_19: 0.6 | 27.8
+pregunta_20: 0.4 | 28.2
+pregunta_21: 0.8 | 29
+pregunta_22: 1 | 30
+supervisor_03:  | 30
+pregunta_23: 0.5 | 30.5
+pregunta_24: 0.5 | 31
+pregunta_25: 0.2 | 31.2
+pregunta_26: 0.6 | 31.8
+pregunta_27: 0.4 | 32.2
+pregunta_28: 1 | 33.2
+pregunta_29: 0.5 | 33.7
+pregunta_30: 0.4 | 34.1
+pregunta_31: 0.4 | 34.5
+pregunta_32: 1 | 35.5
+pregunta_33: 0.4 | 35.9
+pregunta_35: 0.3 | 36.2
+pregunta_34: 0.3 | 36.5
+pregunta_36: 1 | 37.5
+pregunta_37: 0.2 | 37.7
+pregunta_38: 1 | 38.7
+pregunta_39: 0.4 | 39.1
+pregunta_40: 0.3 | 39.4
+pregunta_41: 0.1 | 39.5
+pregunta_42: 0.5 | 40
+pregunta_43: 0.3 | 40.3
+pregunta_44: 0.5 | 40.8
+pregunta_45: 0.3 | 41.1
+pregunta_46: 0.2 | 41.3
+pregunta_47: 0.2 | 41.5
+pregunta_48: 1 | 42.5
+pregunta_49: 0.4 | 42.9
+pregunta_50: 0.3 | 43.2
+pregunta_51: 0.4 | 43.6
+pregunta_52: 0.4 | 44
+pregunta_53: 0.3 | 44.3
+pregunta_54: 0.2 | 44.5
+pregunta_55: 0.4 | 44.9
+pregunta_56: 0.5 | 45.4
+pregunta_57: 0.5 | 45.9
+pregunta_58: 0.1 | 46
+pregunta_59: 0.5 | 46.5
+pregunta_60: 0.2 | 46.7
+pregunta_61: 0.2 | 46.9
+pregunta_62: 0.1 | 47
+pregunta_63: 0.7 | 47.7
+pregunta_64: 0.1 | 47.8
+pregunta_65: 0.2 | 48
+pregunta_66: 0.7 | 48.7
+pregunta_67: 0.1 | 48.8
+pregunta_68: 1 | 49.8
+pregunta_69: 0.2 | 50
+pregunta_70: 0.2 | 50.2
+pregunta_71: 0.1 | 50.3
+pregunta_72: 0.1 | 50.4
+pregunta_73: 0.1 | 50.5
+pregunta_74: 0.1 | 50.6
+pregunta_75: 0.2 | 50.8
+pregunta_76: 0.7 | 51.5
+pregunta_77: 0.1 | 51.6
+pregunta_78: 0.1 | 51.7
+pregunta_79: 0.3 | 52
+pregunta_80: 0.5 | 52.5
+pregunta_81: 0.5 | 53
+supervisor_04:  | 53
+pregunta_82: 0.1 | 53.1
+pregunta_83: 0.4 | 53.5
+pregunta_84: 2 | 55.5
+pregunta_85: 1 | 56.5
+pregunta_86: 6 | 62.5
+pregunta_87: 1 | 63.5
+pregunta_88: 1.5 | 65
+pregunta_89: 1 | 66
+supervisor_05:  | 66
+pregunta_90: 0.2 | 66.2
+pregunta_91: 0.5 | 66.7
+pregunta_92: 0.6 | 67.3
+pregunta_93: 0.6 | 67.9
+pregunta_94: 0.5 | 68.4
+pregunta_95: 0.5 | 68.9
+pregunta_96: 0.1 | 69
+pregunta_97: 0.1 | 69.1
+pregunta_98: 0.1 | 69.2
+pregunta_99: 0.2 | 69.4
+pregunta_100: 0.3 | 69.7
+pregunta_101: 0.3 | 70
+pregunta_102: 1 | 71
+pregunta_103:  | 71
+pregunta_104: 4.5 | 75.5
+pregunta_105:  | 75.5
+pregunta_106: 2.5 | 78
+pregunta_107:  | 78
+pregunta_108: 4.5 | 82.5
+pregunta_109:  | 82.5
+pregunta_110: 2.5 | 85
+expediente_01:  | 85
+pregunta_113: 2 | 87
+pregunta_114: 1.5 | 88.5
+pregunta_115: 1 | 89.5
+pregunta_116: 0.3 | 89.8
+pregunta_117: 0.2 | 90
+expediente_02:  | 90
+pregunta_128:  | 90
+pregunta_129: 1 | 91
+pregunta_130: 1.5 | 92.5
+pregunta_131: 0.5 | 93
+pregunta_132: 0.5 | 93.5
+pregunta_133: 1 | 94.5
+pregunta_134: 0.3 | 94.8
+pregunta_135: 0.2 | 95
+expediente_03:  | 95
+pregunta_140: 1 | 96
+pregunta_141: 1.5 | 97.5
+pregunta_142:  | 97.5
+pregunta_143: 1 | 98.5
+pregunta_144: 1 | 99.5
+pregunta_145: 0.3 | 99.8
+pregunta_146: 0.2 | 100

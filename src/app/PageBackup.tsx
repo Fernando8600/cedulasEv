@@ -67,7 +67,7 @@ export default function Form() {
                             className="ml-20 full rounded border-0 py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
                             onChange={handleJurisdiccionChange}
                         >
-                            <option value="" >Selecciona una opción...</option>
+                            <option value="" >Selecciona una Jurisdicción...</option>
                             <option value="jurisdiccion1">Jurisdicción Sanitaria 1 (Querétaro)</option>
                             <option value="jurisdiccion2">Jurisdicción Sanitaria 2 (San Juan del Río)</option>
                             <option value="jurisdiccion3">Jurisdicción Sanitaria 3 (Cadereyta de Montes)</option>
@@ -87,7 +87,7 @@ export default function Form() {
                                     className="ml-20 h-full rounded border-0 py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
                                     onChange={handleMunicipioChange}
                                 >
-                                    <option value="">Selecciona un municipio...</option>
+                                    <option value="">Selecciona un Municipio...</option>
                                     {/* Mapeo de los municipios de la jurisdicción seleccionada */}
                                     {selectedJurisdiccion === 'jurisdiccion1' && (
                                         <>
