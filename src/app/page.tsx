@@ -1,12 +1,10 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import dynamic from "next/dynamic";
-import Checkboxes from '@/components/Checkboxes2';
 import RadioInput from '@/components/RadioInput';
 import axios from 'axios';
 import RootLayout from '@/app/layout';
 import { preguntasPorSeccion } from '../pages/preguntasPorSeccion';
-import { scryptSync } from 'crypto';
 import InputNum from '@/components/InputNum';
 
 export interface Pregunta {
@@ -119,6 +117,8 @@ function Encuesta() {
       console.error('Error posting data:', error);
     }
 
+
+
   };
   const handleCentroSaludChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
     const centroSalud = centrosalud.find(j => j.id == parseInt(e.target.value));
@@ -166,6 +166,23 @@ function Encuesta() {
     }
 
   }, []);
+
+  const getCsv = async () => {
+    try {
+      const response = await axios.get('http://localhost:8088/encuestas/csvGen.php', {
+        responseType: 'blob', // Important for file download
+      });
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'Formulario_01.csv'); // Specify the filename
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error('Error fetching CSV:', error);
+    }
+  };
 
 
 
@@ -257,6 +274,7 @@ function Encuesta() {
               {pregunta.tipo === 'texto' && (
                 <>
                   <h3 className='font-semibold'>{pregunta.texto}</h3>
+
                   <InputNum
                     title={pregunta.texto}
                     onValueChange={(value) => handleInputChange(pregunta.id, value)}
@@ -273,7 +291,7 @@ function Encuesta() {
               )}
               {pregunta.tipo === 'textoNombre' && (
                 <>
-
+                  <h3 className='font-semibold'>{pregunta.texto}</h3>
                   <input
                     type="text"
                     value={respuestas[pregunta.id]?.toString() ?? ''}
@@ -369,7 +387,6 @@ function Encuesta() {
               {((pregunta.tipo === 'exp1dTxtNum' && respuestas['expediente_01'] == 1) || (pregunta.tipo === 'exp1hTxtNum' && respuestas['expediente_01'] == 2)) && (
                 <>
                   <h3 className='font-semibold'>{pregunta.texto}</h3>
-
                   <InputNum
                     title={pregunta.texto}
                     onValueChange={(value) => handleInputChange(pregunta.id, value)}
@@ -491,7 +508,7 @@ function Encuesta() {
 
             </div>
           ))}
-          <div className='flex mt-5'>
+          <div className='flex sm:mt-5'>
 
             {paso > 0 && (
               <button onClick={retrocederPaso} className="mr-4 group relative h-7 w-16 overflow-hidden rounded-2xl bg-gray-900 text-sm font-bold text-white">
@@ -516,11 +533,17 @@ function Encuesta() {
               {paso == totalPasos - 1 && (
                 <button className='ml-4 group relative h-7 w-20 overflow-hidden rounded-2xl bg-blue-600 text-sm font-bold text-white' type='submit' >Enviar</button>
               )}
+
             </form>
             {paso < totalPasos - 1 && (
               <button onClick={avanzarPaso} className="ml-4 group relative h-7 w-20 overflow-hidden rounded-2xl bg-gray-900 text-sm font-bold text-white">
                 Siguiente
                 <div className="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-300 group-hover:scale-100 group-hover:bg-white/30"></div>
+              </button>
+            )}
+            {paso === totalPasos - 1 && (
+              <button onClick={getCsv} className='ml-4 group relative h-7 w-20 overflow-hidden rounded-2xl bg-green-600 text-sm font-bold text-white'>
+                CSV
               </button>
             )}
 

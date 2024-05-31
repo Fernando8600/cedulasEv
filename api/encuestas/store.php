@@ -4,7 +4,7 @@ include_once "../connection.php";
 
 include_once "./answerWeights.php";
 include_once "../helpers.php";
-const TABLE_NAME = "formulario_cedulas_03";
+const TABLE_NAME = "formulario_cedulas_01";
 function generateSqlFromRequest($request)
 {
     $sql = "insert into " . TABLE_NAME . " (";
