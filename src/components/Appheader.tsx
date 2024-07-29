@@ -38,7 +38,7 @@ const AppHeader = () => {
                 <div className='ml-10'>
                     <Link href="/">
                         <Image width={400} height={100}
-                            src="/img/Logo.png"
+                            src="img/logo.jpg"
                             className="w-36"
                             alt="Logo"
                         />

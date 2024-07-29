@@ -4,11 +4,9 @@ interface CheckboxesProps {
     id: string;
     options: string[];
     onChange: (id: string, value: string) => void;
-
 }
 
 const Checkboxes: React.FC<CheckboxesProps> = ({ id, options, onChange }) => {
-
     const [selectedOption, setSelectedOption] = useState<string>('');
 
     const handleCheckboxChange = (value: string) => {
@@ -26,10 +24,10 @@ const Checkboxes: React.FC<CheckboxesProps> = ({ id, options, onChange }) => {
     return (
         <div>
             {options.map((option, index) => (
-                <div className="inline-flex items-center">
+                <div key={option} className="inline-flex items-center"> {/* Added key prop */}
                     <label
                         className="relative flex cursor-pointer items-center rounded-full p-3"
-                        htmlFor="checkbox-1"
+                        htmlFor={`checkbox-${id}-${index}`} // Use unique ids
                         data-ripple-dark="true"
                     >
                         <input
@@ -46,12 +44,12 @@ const Checkboxes: React.FC<CheckboxesProps> = ({ id, options, onChange }) => {
                                 viewBox="0 0 20 20"
                                 fill="currentColor"
                                 stroke="currentColor"
-                                stroke-width="1"
+                                strokeWidth="1"
                             >
                                 <path
-                                    fill-rule="evenodd"
+                                    fillRule="evenodd"
                                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                    clip-rule="evenodd"
+                                    clipRule="evenodd"
                                 ></path>
                             </svg>
                         </div>

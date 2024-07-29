@@ -7,41 +7,34 @@ interface InputVProps {
     disabled: boolean;
 }
 
-export default function InputNum({ title, onValueChange, value, disabled }: InputVProps) {
-
+export default function InputDecimal({ title, onValueChange, value, disabled }: InputVProps) {
     const [errors, setErrors] = useState<boolean>(false);
+    const [inputValue, setInputValue] = useState<string>(value.toString());
 
     useEffect(() => {
         const validateForm = () => {
-            const parsedValue = Number(value);
+            const parsedValue = parseFloat(inputValue);
 
-            if (value === undefined || value === null) {
+            if (inputValue === '' || isNaN(parsedValue) || parsedValue < 0 || parsedValue > 12) {
                 setErrors(true);
-            } else if (Number.isInteger(parsedValue) && parsedValue >= 0 && parsedValue <= 100) {
-                setErrors(false);
             } else {
-                setErrors(true);
+                setErrors(false);
+                onValueChange(parsedValue);
             }
         };
 
         validateForm();
-    }, [value]);
+    }, [inputValue, onValueChange]);
 
     const handleValueChange = (newValue: string) => {
-        if (/^\d*$/.test(newValue)) {
-            const parsedValue = parseInt(newValue);
-            if (!isNaN(parsedValue) && parsedValue >= 0 && parsedValue <= 100) {
-                onValueChange(parsedValue);
-            } else if (newValue === '') {
-                onValueChange(0);
-            }
+        if (/^\d*\.?\d*$/.test(newValue)) {
+            setInputValue(newValue);
         }
     };
 
     return (
         <>
             <div>
-
                 {disabled ? <>
                     <br />
                     <br />
@@ -50,7 +43,7 @@ export default function InputNum({ title, onValueChange, value, disabled }: Inpu
                     <input
                         className={errors ? "peer h-full w-full rounded-[7px] border border-red-500 border-t-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-red-500 placeholder-shown:border-t-red-500 focus:border-2 focus:border-red-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50" : "peer h-full w-full rounded-[7px] border border-green-500 border-t-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-green-500 placeholder-shown:border-t-green-500 focus:border-2 focus:border-green-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"}
                         placeholder=" "
-                        value={disabled ? '' : value}
+                        value={disabled ? '' : inputValue}
                         onChange={(e) => handleValueChange(e.target.value)}
                         disabled={disabled}
                     />

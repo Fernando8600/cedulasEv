@@ -1,7 +1,7 @@
 'use client';
 import { Pregunta } from '../app/page';
 
-export const preguntasPorSeccion: { titulo: string; preguntas: Pregunta[]; }[] = [
+export  const preguntasPorSeccion: { titulo: string; preguntas: Pregunta[]; }[] = [
     {
         titulo: 'RH y Productividad',
         preguntas: [
@@ -10,7 +10,7 @@ export const preguntasPorSeccion: { titulo: string; preguntas: Pregunta[]; }[] =
             { id: 'pregunta_02', texto: 'Porcentaje del personal en turno que se encuentra en este momento en la unidad (0-100)', tipo: 'texto', ponderacion: 1 },
             { id: 'pregunta_03', texto: 'Porcentaje del personal del turno que se encuentra en su área de trabajo haciendo las actividades que le corresponden (0-100)', tipo: 'texto', ponderacion: 3 },
             { id: 'pregunta_04', texto: 'El personal porta gafete visible', tipo: 'checkbox', ponderacion: 0.5 },
-            { id: 'pregunta_05', texto: 'Productividad de consulta reportada de los últimos 2 meses (0-12)', tipo: 'texto', ponderacion: 3 },
+            { id: 'pregunta_05', texto: 'Productividad de consulta reportada de los últimos 2 meses (0-12)', tipo: 'textoDecimal', ponderacion: 3 },
             { id: 'pregunta_06', texto: 'Reloj checador funcionando', tipo: 'checkboxdual', ponderacion: 0.5 },
             { id: 'pregunta_07', texto: 'Cuenta con carpeta de expediente de recursos humanos', tipo: 'checkboxdual', ponderacion: 0.5 },
             { id: 'pregunta_08', texto: 'Electrocardiogramas realizados en bitácora en los últimos 2 meses (0-25)', tipo: 'texto', ponderacion: 1 },

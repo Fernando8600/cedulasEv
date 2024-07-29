@@ -4,8 +4,9 @@ import dynamic from "next/dynamic";
 import RadioInput from '@/components/RadioInput';
 import axios from 'axios';
 import RootLayout from '@/app/layout';
-import { preguntasPorSeccion } from '../pages/preguntasPorSeccion';
+import { preguntasPorSeccion } from '../utils/preguntasPorSeccion';
 import InputNum from '@/components/InputNum';
+import InputDecimal from '@/components/InputDecimal';
 
 export interface Pregunta {
   id: string;
@@ -24,6 +25,7 @@ interface Municipio {
 }
 interface CentroSalud {
   id: number;
+  code: string;
   name: string;
   municipio_id: number;
 }
@@ -42,6 +44,7 @@ function Encuesta() {
   const [paso, setPaso] = useState(0); // Comenzamos desde la sección 0
   const [valueSeleccion, setvalueSeleccion] = useState(2);
   const totalPasos = preguntasPorSeccion.length;
+  const [isWideScreen, setIsWideScreen] = useState(false);
 
   const handleInputChange = (id: string, value: string | number | undefined) => {
     const newRespuestas = {
@@ -110,8 +113,9 @@ function Encuesta() {
       // console.log('Total Ponderacion:', totalPonderacion);
       delete respuestas.jurisdiccion_id;
       delete respuestas.municipio_id;
-      const response = await axios.post('http://localhost:8088/encuestas/store.php', respuestas);
+      const response = await axios.post('api/encuestas/store.php', respuestas);
       console.log('Response:', response.data);
+      
       alert("Enviado de manera correcta");
     } catch (error) {
       console.error('Error posting data:', error);
@@ -130,7 +134,7 @@ function Encuesta() {
 
   const fetchMuncipios = async (jurisdiccion_id: number) => {
     try {
-      const response = await axios.get('http://localhost:8088/municipios/get-all.php?jurisdiccion_id=' + jurisdiccion_id);
+      const response = await axios.get('api/municipios/get-all.php?jurisdiccion_id=' + jurisdiccion_id);
       setMunicipios(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -138,7 +142,7 @@ function Encuesta() {
   };
   const fetchCentrosSalud = async (municipio_id: number) => {
     try {
-      const response = await axios.get('http://localhost:8088/centros-salud/get-all.php?municipio_id=' + municipio_id);
+      const response = await axios.get('api/centros-salud/get-all.php?municipio_id=' + municipio_id);
       setCentrosalud(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -150,7 +154,7 @@ function Encuesta() {
   useEffect(() => {
     const fetchJurisdicciones = async () => {
       try {
-        const response = await axios.get('http://localhost:8088/jurisdicciones/get-all.php');
+        const response = await axios.get('api/jurisdicciones/get-all.php');
         setJurisdicciones(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -165,11 +169,11 @@ function Encuesta() {
       fetchCentrosSalud(respuestas.municipio_id as number ?? 0);
     }
 
-  }, []);
+  }, [respuestas.jurisdiccion_id, respuestas.municipio_id]);
 
   const getCsv = async () => {
     try {
-      const response = await axios.get('http://localhost:8088/encuestas/csvGen.php', {
+      const response = await axios.get('api/encuestas/csvGen.php', {
         responseType: 'blob', // Important for file download
       });
       const url = window.URL.createObjectURL(new Blob([response.data]));
@@ -184,7 +188,16 @@ function Encuesta() {
     }
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsWideScreen(window.innerWidth > 680); // Cambia 1024 por el ancho deseado
+    };
 
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Ejecuta una vez para establecer el estado inicial
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <RootLayout>
@@ -251,7 +264,7 @@ function Encuesta() {
                     <option value="">Selecciona el Centro de salud...</option>
                     {/*  Mapeo de los centros de salud del municipio seleccionados */}
                     {centrosalud.map((centroSalud) => (
-                      <option key={centroSalud.id} value={centroSalud.id}>{centroSalud.name}</option>
+                      <option key={centroSalud.id} value={centroSalud.id}>{centroSalud.code} {centroSalud.name}</option>
                     ))}
                   </select>
                 </div>
@@ -276,6 +289,24 @@ function Encuesta() {
                   <h3 className='font-semibold'>{pregunta.texto}</h3>
 
                   <InputNum
+                    title={pregunta.texto}
+                    onValueChange={(value) => handleInputChange(pregunta.id, value)}
+                    value={respuestas[pregunta.id] !== undefined ? parseInt(respuestas[pregunta.id] as string) : 0}
+                    disabled={false}
+                  />
+                  {/* <input
+                    type="text"
+                    value={respuestas[pregunta.id]?.toString() ?? ''}
+                    onChange={(e) => handleInputChange(pregunta.id, e.target.value)}
+                    className="pl-2 block w-8/12 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  /> */}
+                </>
+              )}
+              {pregunta.tipo === 'textoDecimal' && (
+                <>
+                  <h3 className='font-semibold'>{pregunta.texto}</h3>
+
+                  <InputDecimal
                     title={pregunta.texto}
                     onValueChange={(value) => handleInputChange(pregunta.id, value)}
                     value={respuestas[pregunta.id] !== undefined ? parseInt(respuestas[pregunta.id] as string) : 0}
@@ -510,12 +541,13 @@ function Encuesta() {
           ))}
           <div className='flex sm:mt-5'>
 
-            {paso > 0 && (
+            {paso > 0 && isWideScreen && (
               <button onClick={retrocederPaso} className="mr-4 group relative h-7 w-16 overflow-hidden rounded-2xl bg-gray-900 text-sm font-bold text-white">
                 Atrás
                 <div className="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-300 group-hover:scale-100 group-hover:bg-white/30"></div>
               </button>
             )}
+
             {/* <p>Página {paso + 1}</p> */}
             <form onSubmit={handleSubmit}>
               <select
@@ -530,23 +562,52 @@ function Encuesta() {
                   </option>
                 ))}
               </select>
-              {paso == totalPasos - 1 && (
-                <button className='ml-4 group relative h-7 w-20 overflow-hidden rounded-2xl bg-blue-600 text-sm font-bold text-white' type='submit' >Enviar</button>
+
+              {paso == totalPasos - 1 && isWideScreen && (
+                <button className='ml-4 group relative h-7 w-20 overflow-hidden rounded-2xl bg-blue-600 text-sm font-bold text-white' type='submit' >
+                  Enviar</button>
               )}
 
             </form>
-            {paso < totalPasos - 1 && (
+            {paso < totalPasos - 1 && isWideScreen && (
               <button onClick={avanzarPaso} className="ml-4 group relative h-7 w-20 overflow-hidden rounded-2xl bg-gray-900 text-sm font-bold text-white">
                 Siguiente
                 <div className="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-300 group-hover:scale-100 group-hover:bg-white/30"></div>
               </button>
             )}
-            {paso === totalPasos - 1 && (
+            {(paso === totalPasos - 1 || paso === 0) && isWideScreen && (
               <button onClick={getCsv} className='ml-4 group relative h-7 w-20 overflow-hidden rounded-2xl bg-green-600 text-sm font-bold text-white'>
                 CSV
               </button>
             )}
 
+          </div>
+          <div className='flex'>
+            {paso > 0 && !isWideScreen && (
+              <>
+                <button onClick={retrocederPaso} className=" mr-8 h-7 w-16 overflow-hidden rounded-2xl bg-gray-900 text-sm font-bold text-white">
+                  Atrás
+                  <div className="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-300 group-hover:scale-100 group-hover:bg-white/30"></div>
+                </button>
+              </>
+            )}
+            {paso == totalPasos - 1 && !isWideScreen && (
+              <>
+                <button className=' h-7 w-20 overflow-hidden rounded-2xl bg-blue-600 text-sm font-bold text-white' type='submit' >
+                  Enviar</button>
+              </>
+            )}
+            {paso < totalPasos - 1 && !isWideScreen && (
+              <button onClick={avanzarPaso} className="  h-7 w-20 overflow-hidden rounded-2xl bg-gray-900 text-sm font-bold text-white">
+                Siguiente
+                <div className="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-300 group-hover:scale-100 group-hover:bg-white/30"></div>
+              </button>
+            )}
+            {(paso === totalPasos - 1 || paso === 0) && !isWideScreen && (
+              <button onClick={getCsv} className='ml-8  h-7 w-20 overflow-hidden rounded-2xl bg-green-600 text-sm font-bold text-white'>
+                CSV
+              </button>
+            )}
           </div>
         </div>
       </div>
