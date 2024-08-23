@@ -24,7 +24,7 @@ export default function InputDecimal({ title, onValueChange, value, disabled }: 
         };
 
         validateForm();
-    }, [inputValue, onValueChange]);
+    }, [inputValue]);
 
     const handleValueChange = (newValue: string) => {
         if (/^\d*\.?\d*$/.test(newValue)) {

@@ -1,10 +1,7 @@
 "use client";
 import { useState } from 'react';
 import { FiMenu, FiMoon, FiSun, FiX } from 'react-icons/fi';
-import Link from 'next/link';
-import Image from 'next/image';
-import Logo from '../images/Logo.png';
-import Analisis from '@/pages/Analisis';
+
 const AppHeader = () => {
     const [showMenu, setShowMenu] = useState(false);
     const [showModal, setShowModal] = useState(false);
@@ -36,13 +33,11 @@ const AppHeader = () => {
             {/* Header menu links and small screen hamburger menu */}
             <div className="flex justify-between items-center px-4 sm:px-0">
                 <div className='ml-10'>
-                    <Link href="/">
-                        <Image width={400} height={100}
-                            src="img/logo.jpg"
-                            className="w-36"
-                            alt="Logo"
-                        />
-                    </Link>
+                    <img width={400} height={100}
+                        src="img/logo.jpg"
+                        className="w-36"
+                        alt="Logo"
+                    />
                 </div>
 
                 {/* Small screen hamburger menu */}
@@ -83,24 +78,24 @@ const AppHeader = () => {
                 >
                     Analisis
                 </Link> */}
-                <Link
+                <a
                     href="/"
                     className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
                     aria-label="Evaluaciones"
                 >
                     Evaluaciones
-                </Link>
+                </a>
             </div>
 
             {/* Header links large screen */}
             <div className="font-general-medium hidden m-0 sm:ml-4 mt-5 sm:mt-3 sm:flex p-5 sm:p-0 justify-center items-center shadow-lg sm:shadow-none">
-                <Link
+                <a
                     href="/"
                     className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
                     aria-label="Evaluaciones"
                 >
                     Evaluaciones
-                </Link>
+                </a>
                 {/* <Link
                     href="/Analisis"
                     className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark"
