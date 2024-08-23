@@ -838,3 +838,281 @@ pregunta_143: 1 | 98.5
 pregunta_144: 1 | 99.5
 pregunta_145: 0.3 | 99.8
 pregunta_146: 0.2 | 100
+pregunta_05: 2.75 | 2.75
+nombre_encuestador:  | 2.75
+pregunta_02: 1 | 3.75
+pregunta_01: 0.25 | 4
+pregunta_03: 3 | 7
+centro_salud_id:  | 7
+pregunta_04: 0.5 | 7.5
+pregunta_06: 0 | 7.5
+pregunta_07: 0 | 7.5
+pregunta_08: 0.56 | 8.06
+supervisor_01:  | 8.06
+pregunta_09: 0 | 8.06
+pregunta_10: 2 | 10.06
+pregunta_11: 3.5 | 13.56
+pregunta_12: 2 | 15.56
+supervisor_02:  | 15.56
+pregunta_13: 1 | 16.56
+pregunta_14: 1 | 17.56
+pregunta_15: 1 | 18.56
+pregunta_16: 1 | 19.56
+pregunta_17: 0.7 | 20.26
+pregunta_18: 0.5 | 20.76
+pregunta_19: 0.6 | 21.36
+pregunta_20: 0.4 | 21.76
+pregunta_21: 0.8 | 22.56
+pregunta_22: 1 | 23.56
+supervisor_03:  | 23.56
+pregunta_23: 0.5 | 24.06
+pregunta_24: 0.5 | 24.56
+pregunta_25: 0.2 | 24.76
+pregunta_26: 0.6 | 25.36
+pregunta_27: 0.4 | 25.76
+pregunta_28: 1 | 26.76
+pregunta_29: 0.5 | 27.26
+pregunta_30: 0.4 | 27.66
+pregunta_31: 0.4 | 28.06
+pregunta_32: 1 | 29.06
+pregunta_33: 0.4 | 29.46
+pregunta_34: 0.3 | 29.76
+pregunta_35: 0.3 | 30.06
+pregunta_36: 1 | 31.06
+pregunta_37: 0.2 | 31.26
+pregunta_38: 1 | 32.26
+pregunta_39: 0.4 | 32.66
+pregunta_40: 0.3 | 32.96
+pregunta_41: 0.1 | 33.06
+pregunta_42: 0.5 | 33.56
+pregunta_43: 0.3 | 33.86
+pregunta_44: 0.5 | 34.36
+pregunta_45: 0.3 | 34.66
+pregunta_46: 0.2 | 34.86
+pregunta_47: 0.2 | 35.06
+pregunta_48: 1 | 36.06
+pregunta_49: 0.4 | 36.46
+pregunta_50: 0.3 | 36.76
+pregunta_51: 0.4 | 37.16
+pregunta_52: 0.4 | 37.56
+pregunta_53: 0.3 | 37.86
+pregunta_54: 0.2 | 38.06
+pregunta_55: 0.4 | 38.46
+pregunta_56: 0.5 | 38.96
+pregunta_57: 0.5 | 39.46
+pregunta_58: 0.1 | 39.56
+pregunta_59: 0.5 | 40.06
+pregunta_60: 0.2 | 40.26
+pregunta_61: 0.2 | 40.46
+pregunta_62: 0.1 | 40.56
+pregunta_63: 0.7 | 41.26
+pregunta_64: 0.1 | 41.36
+pregunta_65: 0.2 | 41.56
+pregunta_66: 0.7 | 42.26
+pregunta_67: 0.1 | 42.36
+pregunta_68: 1 | 43.36
+pregunta_69: 0.2 | 43.56
+pregunta_70: 0.2 | 43.76
+pregunta_71: 0.1 | 43.86
+pregunta_72: 0.1 | 43.96
+pregunta_73: 0.1 | 44.06
+pregunta_74: 0.1 | 44.16
+pregunta_75: 0.2 | 44.36
+pregunta_76: 0.7 | 45.06
+pregunta_77: 0.1 | 45.16
+pregunta_78: 0.1 | 45.26
+pregunta_79: 0.3 | 45.56
+pregunta_80: 0.5 | 46.06
+pregunta_81: 0.5 | 46.56
+supervisor_04:  | 46.56
+pregunta_82: 0.1 | 46.66
+pregunta_83: 0.4 | 47.06
+pregunta_84: 2 | 49.06
+pregunta_85: 1 | 50.06
+pregunta_86: 2.4 | 52.46
+pregunta_88: 1.5 | 53.96
+pregunta_87: 1 | 54.96
+pregunta_89: 1 | 55.96
+supervisor_05:  | 55.96
+pregunta_90: 0.2 | 56.16
+pregunta_91: 0.5 | 56.66
+pregunta_92: 0.6 | 57.26
+pregunta_93: 0.6 | 57.86
+pregunta_94: 0.5 | 58.36
+pregunta_95: 0.5 | 58.86
+pregunta_96: 0.1 | 58.96
+pregunta_97: 0.1 | 59.06
+pregunta_98: 0.1 | 59.16
+pregunta_99: 0.2 | 59.36
+pregunta_100: 0.3 | 59.66
+pregunta_101: 0.3 | 59.96
+pregunta_102: 1 | 60.96
+pregunta_103:  | 60.96
+pregunta_104: 4.5 | 65.46
+pregunta_105:  | 65.46
+pregunta_106: 2.5 | 67.96
+pregunta_107:  | 67.96
+pregunta_108: 4.5 | 72.46
+pregunta_109:  | 72.46
+pregunta_110: 2.5 | 74.96
+expediente_01:  | 74.96
+pregunta_111: 2 | 76.96
+pregunta_112: 1.5 | 78.46
+pregunta_115: 1 | 79.46
+pregunta_116: 0.3 | 79.76
+pregunta_117: 0.2 | 79.96
+expediente_02:  | 79.96
+pregunta_118:  | 79.96
+pregunta_119: 1.5 | 81.46
+pregunta_120: 1 | 82.46
+pregunta_133: 1 | 83.46
+pregunta_121: 1 | 84.46
+pregunta_134: 0.3 | 84.76
+pregunta_135: 0.2 | 84.96
+pregunta_144: 1 | 85.96
+expediente_03:  | 85.96
+pregunta_136: 1 | 86.96
+pregunta_138: 0.5 | 87.46
+pregunta_137: 1 | 88.46
+pregunta_139: 1 | 89.46
+pregunta_145: 0.3 | 89.76
+pregunta_146: 0.2 | 89.96
+pregunta_05: 2.75 | 2.75
+nombre_encuestador:  | 2.75
+pregunta_02: 1 | 3.75
+pregunta_01: 0.25 | 4
+pregunta_03: 3 | 7
+centro_salud_id:  | 7
+pregunta_04: 0.5 | 7.5
+pregunta_06: 0 | 7.5
+pregunta_07: 0 | 7.5
+pregunta_08: 0.56 | 8.06
+supervisor_01:  | 8.06
+pregunta_09: 0 | 8.06
+pregunta_10: 2 | 10.06
+pregunta_11: 3.5 | 13.56
+pregunta_12: 2 | 15.56
+supervisor_02:  | 15.56
+pregunta_13: 1 | 16.56
+pregunta_14: 1 | 17.56
+pregunta_15: 1 | 18.56
+pregunta_16: 1 | 19.56
+pregunta_17: 0.7 | 20.26
+pregunta_18: 0.5 | 20.76
+pregunta_19: 0.6 | 21.36
+pregunta_20: 0.4 | 21.76
+pregunta_21: 0.8 | 22.56
+pregunta_22: 1 | 23.56
+supervisor_03:  | 23.56
+pregunta_23: 0.5 | 24.06
+pregunta_24: 0.5 | 24.56
+pregunta_25: 0.2 | 24.76
+pregunta_26: 0.6 | 25.36
+pregunta_27: 0.4 | 25.76
+pregunta_28: 1 | 26.76
+pregunta_29: 0.5 | 27.26
+pregunta_30: 0.4 | 27.66
+pregunta_31: 0.4 | 28.06
+pregunta_32: 1 | 29.06
+pregunta_33: 0.4 | 29.46
+pregunta_34: 0.3 | 29.76
+pregunta_35: 0.3 | 30.06
+pregunta_36: 1 | 31.06
+pregunta_37: 0.2 | 31.26
+pregunta_38: 1 | 32.26
+pregunta_39: 0.4 | 32.66
+pregunta_40: 0.3 | 32.96
+pregunta_41: 0.1 | 33.06
+pregunta_42: 0.5 | 33.56
+pregunta_43: 0.3 | 33.86
+pregunta_44: 0.5 | 34.36
+pregunta_45: 0.3 | 34.66
+pregunta_46: 0.2 | 34.86
+pregunta_47: 0.2 | 35.06
+pregunta_48: 1 | 36.06
+pregunta_49: 0.4 | 36.46
+pregunta_50: 0.3 | 36.76
+pregunta_51: 0.4 | 37.16
+pregunta_52: 0.4 | 37.56
+pregunta_53: 0.3 | 37.86
+pregunta_54: 0.2 | 38.06
+pregunta_55: 0.4 | 38.46
+pregunta_56: 0.5 | 38.96
+pregunta_57: 0.5 | 39.46
+pregunta_58: 0.1 | 39.56
+pregunta_59: 0.5 | 40.06
+pregunta_60: 0.2 | 40.26
+pregunta_61: 0.2 | 40.46
+pregunta_62: 0.1 | 40.56
+pregunta_63: 0.7 | 41.26
+pregunta_64: 0.1 | 41.36
+pregunta_65: 0.2 | 41.56
+pregunta_66: 0.7 | 42.26
+pregunta_67: 0.1 | 42.36
+pregunta_68: 1 | 43.36
+pregunta_69: 0.2 | 43.56
+pregunta_70: 0.2 | 43.76
+pregunta_71: 0.1 | 43.86
+pregunta_72: 0.1 | 43.96
+pregunta_73: 0.1 | 44.06
+pregunta_74: 0.1 | 44.16
+pregunta_75: 0.2 | 44.36
+pregunta_76: 0.7 | 45.06
+pregunta_77: 0.1 | 45.16
+pregunta_78: 0.1 | 45.26
+pregunta_79: 0.3 | 45.56
+pregunta_80: 0.5 | 46.06
+pregunta_81: 0.5 | 46.56
+supervisor_04:  | 46.56
+pregunta_82: 0.1 | 46.66
+pregunta_83: 0.4 | 47.06
+pregunta_84: 2 | 49.06
+pregunta_85: 1 | 50.06
+pregunta_86: 2.4 | 52.46
+pregunta_88: 1.5 | 53.96
+pregunta_87: 1 | 54.96
+pregunta_89: 1 | 55.96
+supervisor_05:  | 55.96
+pregunta_90: 0.2 | 56.16
+pregunta_91: 0.5 | 56.66
+pregunta_92: 0.6 | 57.26
+pregunta_93: 0.6 | 57.86
+pregunta_94: 0.5 | 58.36
+pregunta_95: 0.5 | 58.86
+pregunta_96: 0.1 | 58.96
+pregunta_97: 0.1 | 59.06
+pregunta_98: 0.1 | 59.16
+pregunta_99: 0.2 | 59.36
+pregunta_100: 0.3 | 59.66
+pregunta_101: 0.3 | 59.96
+pregunta_102: 1 | 60.96
+pregunta_103:  | 60.96
+pregunta_104: 4.5 | 65.46
+pregunta_105:  | 65.46
+pregunta_106: 2.5 | 67.96
+pregunta_107:  | 67.96
+pregunta_108: 4.5 | 72.46
+pregunta_109:  | 72.46
+pregunta_110: 2.5 | 74.96
+expediente_01:  | 74.96
+pregunta_111: 2 | 76.96
+pregunta_112: 1.5 | 78.46
+pregunta_115: 1 | 79.46
+pregunta_116: 0.3 | 79.76
+pregunta_117: 0.2 | 79.96
+expediente_02:  | 79.96
+pregunta_118:  | 79.96
+pregunta_119: 1.5 | 81.46
+pregunta_120: 1 | 82.46
+pregunta_133: 1 | 83.46
+pregunta_121: 1 | 84.46
+pregunta_134: 0.3 | 84.76
+pregunta_135: 0.2 | 84.96
+pregunta_144: 1 | 85.96
+expediente_03:  | 85.96
+pregunta_136: 1 | 86.96
+pregunta_138: 0.5 | 87.46
+pregunta_137: 1 | 88.46
+pregunta_139: 1 | 89.46
+pregunta_145: 0.3 | 89.76
+pregunta_146: 0.2 | 89.96
